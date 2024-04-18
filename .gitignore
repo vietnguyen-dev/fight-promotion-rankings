@@ -2,3 +2,28 @@
 
 admin-app/node_modules
 admin-app/package-lock.json
+
+# Logs
+admin-app/logs
+admin-app/*.log
+admin-app/npm-debug.log*
+admin-app/yarn-debug.log*
+admin-app/yarn-error.log*
+admin-app/pnpm-debug.log*
+admin-app/lerna-debug.log*
+admin-app/
+admin-app/node_modules
+admin-app/dist
+admin-app/dist-ssr
+admin-app/*.local
+admin-app/
+admin-app/# Editor directories and files
+admin-app/.vscode/*
+admin-app/!.vscode/extensions.json
+admin-app/.idea
+admin-app/.DS_Store
+admin-app/*.suo
+admin-app/*.ntvs*
+admin-app/*.njsproj
+admin-app/*.sln
+admin-app/*.sw?
