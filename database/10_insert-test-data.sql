@@ -28,3 +28,5 @@ INSERT INTO weight_classes (wei_code, weight_range, name, pid) VALUES ('LIG155',
 INSERT INTO weight_classes (wei_code, weight_range, name, pid) VALUES ('CAT160', '155- 160', 'Catchweight 160', 1);  
 INSERT INTO weight_classes (wei_code, weight_range, name, pid) VALUES ('CAT180', '175- 180', 'Catchweight 180', 1);  
 INSERT INTO weight_classes (wei_code, weight_range, name, pid) VALUES ('HEA200', '200', 'Heavyweight 200', 1);  
+
+INSERT INTO athletes (first_name, last_name, nickname, gym_name, location, height, reach) VALUES ('Keith', 'Nguyen', 'Kamikaze', 'Tigerstyle Combat Sports', 'Portland, OR', '6" 1', '73');
