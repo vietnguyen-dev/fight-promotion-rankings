@@ -31,7 +31,12 @@ INSERT INTO weight_classes (wei_code, weight_range, name, pid) VALUES ('HEA200',
 
 INSERT INTO athletes (first_name, last_name, nickname, gym_name, location, height, reach) VALUES ('Keith', 'Nguyen', 'Kamikaze', 'Tigerstyle Combat Sports', 'Portland, OR', '6" 1', '73');
 INSERT INTO athletes (first_name, last_name, gym_name, location, height, reach) VALUES ('Eli', 'Davis', 'Mercenary Combat Sports', 'Pasco, WA', '6" 1', '73');
-INSERT INTO athletes (first_name, last_name, nickname, gym_name, location, height, reach) VALUES ('Keith', 'Nguyen', 'Kamikaze', 'Tigerstyle Combat Sports', 'Portland, OR', '6" 1', '73');
-INSERT INTO athletes (first_name, last_name, nickname, gym_name, location, height, reach) VALUES ('Keith', 'Nguyen', 'Kamikaze', 'Tigerstyle Combat Sports', 'Portland, OR', '6" 1', '73');
-INSERT INTO athletes (first_name, last_name, nickname, gym_name, location, height, reach) VALUES ('Keith', 'Nguyen', 'Kamikaze', 'Tigerstyle Combat Sports', 'Portland, OR', '6" 1', '73');
-INSERT INTO athletes (first_name, last_name, nickname, gym_name, location, height, reach) VALUES ('Keith', 'Nguyen', 'Kamikaze', 'Tigerstyle Combat Sports', 'Portland, OR', '6" 1', '73');
+
+INSERT INTO events (eve_code, event_title, pid, event_date) VALUES ('nwkb7', 'Northwest Kickboxing League: 7', 1, '2023-12-30');
+
+INSERT INTO fights (athlete_id, athlete_two_id, events_id, weight_class_id, time_ellapsed, rounds_lasted, number_rounds, min_per_round) VALUES (1, 2, 1, 6, '0:17', 1, 3, 3);
+
+INSERT INTO fight_results (fight_id, winner_id, loser_id, result_id) VALUES (1, 2, 1, 1); 
+
+
+
