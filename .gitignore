@@ -1,8 +1,8 @@
 .env
 
-admin-app/node_modules
-admin-app/package-lock.json
-
+app/node_modules
+app/package-lock.json
+app/.next
 # Logs
 app/logs
 app/*.log
