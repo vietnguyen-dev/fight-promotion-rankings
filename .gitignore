@@ -1,1 +1,4 @@
 .env
+
+admin-app/node_modules
+admin-app/package-lock.json
