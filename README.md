@@ -2,8 +2,7 @@ A ranking systsem for fight promotions
 
 Smaller fight promotions in the United States and Canada do not have rankings on their websites. Promotion rankings is a website that allows fight promotions to compare their ranks to be able to cross promote
 
-Admin App - React TypeScript Vite with SSR
-public websites - php
+Admin App + Public Websites - React TypeScript Vite with SSR
 Backend - Go
 Database - PG
 Hosting - AWS EC2 + Docker Compose
