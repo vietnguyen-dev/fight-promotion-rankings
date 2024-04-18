@@ -1,5 +1,6 @@
 <html>
 <head>
+	<title> Rankings </title>
 </head>
 <body>
 	<?php 
