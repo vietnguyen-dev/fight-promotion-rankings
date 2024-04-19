@@ -1,4 +1,4 @@
-tREATE TABLE fights (
+CREATE TABLE fights (
     id SERIAL PRIMARY KEY,
     athlete_id INT,
     athlete_two_id INT,
