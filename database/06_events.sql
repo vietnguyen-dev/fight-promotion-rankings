@@ -19,10 +19,3 @@ WHERE
 ORDER BY 
     promotion_id ASC, 
     COALESCE(event_date, 'infinity') DESC;
-SELECT 
-	*
-FROM events
-WHERE 	
-	date_deleted IS NULL
-ORDER BY 
-	promotion_id ASC, COALESCE(event_date, 'infinity') DESC;

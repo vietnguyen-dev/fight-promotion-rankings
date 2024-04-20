@@ -22,24 +22,24 @@ CREATE VIEW vw_fights AS
 SELECT
     f.id,
     f.athlete_id,
-    CONCAT(a1.first_name, " ", a1.last_name) as athlete_name,
+    CONCAT(a1.first_name, ' ', a1.last_name) as athlete_name,
     f.athlete_two_id,
-    CONCAT(a2.first_name, " ", a2.last_name) as athlete_two_name,
+    CONCAT(a2.first_name, ' ', a2.last_name) as athlete_two_name,
     f.events_id,
-    e.promotion_id AS promotion_id
+    e.promotion_id AS promotion_id,
     f.weight_class_id,
     wc.name as weight_class_name,
     f.card_place,
     f.time_ellapsed,
-    f.rounds_lasted INT,
-    f.number_rounds INT,
-    f.min_per_round INT,
-    f.date_created DATE DEFAULT CURRENT_DATE,
-    f.date_updated DATE,
-    f.date_deleted DATE,
+    f.rounds_lasted,
+    f.number_rounds,
+    f.min_per_round,
+    f.date_created,
+    f.date_updated,
+    f.date_deleted
 FROM fights f
 INNER JOIN 
-	events_id e ON e.id = f.events_id
+	events e ON e.id = f.events_id
 INNER JOIN
 	weight_classes wc ON wc.id = f.weight_class_id
 LEFT JOIN

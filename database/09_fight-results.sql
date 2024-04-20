@@ -4,6 +4,7 @@ CREATE TABLE fight_results (
 	winner_id INT NOT NULL,
 	loser_id INT NOT NULL,
 	result_id INT NOT NULL,
+	event_id INT NOT NULL,
     	date_created DATE DEFAULT CURRENT_DATE,
     	date_updated DATE,
     	date_deleted DATE,
@@ -19,9 +20,9 @@ SELECT
 	fr.id,
 	fr.fight_id,
 	fr.winner_id,
-	a1.winner_last_name,
+	a1.last_name AS winner_last_name,
 	fr.loser_id,
-	a2.loser_last_name,
+	a2.last_name AS loser_last_name,
 	f.rounds_lasted,
 	f.time_ellapsed,
 	fr.result_id,
@@ -29,7 +30,7 @@ SELECT
 	e.event_date
 FROM fight_results fr
 INNER JOIN
-	fight f ON f.id = fr.fight_id
+	fights f ON f.id = fr.fight_id
 INNER JOIN 
 	athletes a1 ON a1.id = fr.winner_id
 INNER JOIN
@@ -37,7 +38,7 @@ INNER JOIN
 INNER JOIN
 	results r ON r.id = fr.result_id
 INNER JOIN
-	events e ON e.id = f.event_id
+	events e ON e.id = fr.event_id
 WHERE
 	fr.date_deleted IS NULL
 ORDER BY
