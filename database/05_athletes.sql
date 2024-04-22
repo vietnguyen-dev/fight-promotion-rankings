@@ -27,11 +27,11 @@ SELECT
 	last_name,
 	nickname,
 	gym_name,
-        location
-        height 
-        reach 
-        dob 
-        active_status
+        location,
+        height, 
+        reach, 
+        dob, 
+        active_status,
         promotion_id,
         instagram_link,
         twitter_link,

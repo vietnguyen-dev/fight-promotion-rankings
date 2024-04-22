@@ -2,7 +2,6 @@ CREATE TABLE promotions (
     id SERIAL PRIMARY KEY,
     pro_code VARCHAR(16) NOT NULL,
     name VARCHAR(256) NOT NULL,
-    email VARCHAR(256) NOT NULL,
     how_many_ranked INT NOT NULL,
     website_link VARCHAR,
     date_created DATE DEFAULT CURRENT_DATE,
@@ -15,7 +14,6 @@ SELECT
 	id,
 	pro_code,
 	name,
-	email,
 	how_many_ranked,
 	website_link
 FROM promotions

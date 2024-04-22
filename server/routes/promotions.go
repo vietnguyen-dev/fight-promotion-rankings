@@ -1,4 +1,17 @@
-//CRUD ROUTES FOR promotions
+package promotionsHandler
 
+import (
+    "fmt"
+    "net/http"
+)
 
-//POST create new promotions when new clerk account is created
+func promotionsHandler(w http.ResponseWriter, r *http.Request) {
+	if r.Method == "GET" {
+		fmt.Fprintf(w, "Contact us via GET request.")
+	} else if r.Method == "POST" {
+		fmt.Fprintf(w, "Contact us via POST request.")
+	} else {
+		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+	}
+}
+
