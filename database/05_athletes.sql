@@ -9,7 +9,7 @@ CREATE TABLE athletes (
     reach INT,
     dob DATE,
     active_status BOOL,
-    pid INT NOT NULL,
+    promotion_id INT NOT NULL,
     instagram_link VARCHAR(255),
     twitter_link VARCHAR(255),
     facebook_link VARCHAR(255),
@@ -17,5 +17,30 @@ CREATE TABLE athletes (
     date_created DATE DEFAULT CURRENT_DATE,
     date_updated DATE,
     date_deleted DATE,
-    FOREIGN KEY (pid) REFERENCES promotions(id)
+    FOREIGN KEY (promotion_id) REFERENCES promotions(id)
 );
+
+CREATE VIEW vw_athletes AS
+SELECT
+	id,
+	first_name,
+	last_name,
+	nickname,
+	gym_name,
+        location
+        height 
+        reach 
+        dob 
+        active_status
+        promotion_id,
+        instagram_link,
+        twitter_link,
+        facebook_link,
+	s3_url
+FROM athletes    
+WHERE 
+	date_deleted IS NULL
+ORDER BY 
+	promotion_id ASC;
+	
+
