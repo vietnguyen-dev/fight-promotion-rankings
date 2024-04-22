@@ -5,8 +5,12 @@ import (
     "net/http"
 )
 
-struct promotion {
-	
+type promotions struct {
+	id int;
+	pro_code string;
+	name string;
+	how_many_ranked int;
+	website_link string;
 }
 
 // handler is a typical HTTP request-response handler in Go; details later
@@ -16,6 +20,6 @@ func handler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-    http.HandleFunc("/", handler)
+    http.HandleFunc("/promotions", handler)
     http.ListenAndServe(":8080", nil)
 }

@@ -1,4 +1,4 @@
-INSERT INTO promotions (pro_code, name, how_many_ranked) VALUES ('NWKBL0','Northwest Kickboxing League', 5); 
+INSERT INTO promotions (pro_code, name, email, how_many_ranked) VALUES ('NWKBL0','Northwest Kickboxing League', 'vietnguyent22@gmail.com', 5); 
 
 INSERT INTO results (res_code, name) VALUES ('TKO', 'Total Knockout');
 INSERT INTO results (res_code, name) VALUES ('KOT', 'Knockout');
