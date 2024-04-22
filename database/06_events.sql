@@ -12,7 +12,11 @@ CREATE TABLE events (
 
 CREATE VIEW vw_events AS
 SELECT 
-    *
+	id,     
+        eve_code,
+        event_title, 
+        promotion_id,
+        event_date
 FROM events
 WHERE    
     date_deleted IS NULL

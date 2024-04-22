@@ -12,13 +12,17 @@ CREATE TABLE weight_classes (
 
 CREATE VIEW vw_weight_classes AS
 SELECT
-	*,
+	id,
+	wei_code,
+	weight_range,
 	CASE 
         	WHEN length(weight_range) >= 3 THEN 
             		CAST(SUBSTRING(weight_range FROM 1 FOR 3) AS INTEGER)
         	ELSE 
             		NULL
-    	END AS weight_first_three_digits
+    	END AS weight_first_three_digits,
+	name,
+	promotion_id
 FROM weight_classes
 WHERE 
 	date_deleted IS NULL

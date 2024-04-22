@@ -33,10 +33,7 @@ SELECT
     f.time_ellapsed,
     f.rounds_lasted,
     f.number_rounds,
-    f.min_per_round,
-    f.date_created,
-    f.date_updated,
-    f.date_deleted
+    f.min_per_round
 FROM fights f
 INNER JOIN 
 	events e ON e.id = f.events_id

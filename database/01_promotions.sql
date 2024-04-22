@@ -11,7 +11,11 @@ CREATE TABLE promotions (
 
 CREATE VIEW vw_promotions AS
 SELECT 
-	*
+	id,
+	pro_code,
+	name,
+	how_many_ranked,
+	website_link
 FROM promotions
 WHERE
 	date_deleted IS NULL;

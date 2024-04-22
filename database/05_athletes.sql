@@ -22,8 +22,22 @@ CREATE TABLE athletes (
 
 CREATE VIEW vw_athletes AS
 SELECT
-	*
-FROM athletes
+	id,
+	first_name,
+	last_name,
+	nickname,
+	gym_name,
+        location
+        height 
+        reach 
+        dob 
+        active_status
+        promotion_id,
+        instagram_link,
+        twitter_link,
+        facebook_link,
+	s3_url
+FROM athletes    
 WHERE 
 	date_deleted IS NULL
 ORDER BY 
