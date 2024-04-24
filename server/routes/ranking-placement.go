@@ -1,4 +1,3 @@
-
 package routes
 
 import (
@@ -9,7 +8,7 @@ import (
 	"server/utils"
 )
 
-type ranking struct {
+type tranking_placement struct {
 	Id int 		`json:"id"`;
 	RanCode string `json:"ran_code"`;
 	Name string `json:"name"`;
@@ -30,23 +29,23 @@ func RankingPlacements(w http.ResponseWriter, r *http.Request) {
 			defer rows.Close()
 
 			//turn the data into proper json
-			var rankings []ranking
+			var ranking_placements []tranking_placement
 			for rows.Next() {
-				var rank ranking
+				var ranking_placement tranking_placement
 				if err := rows.Scan(
-					&rank.Id,
-					&rank.RanCode,
-					&rank.Name,
+					&ranking_placement.Id,
+					&ranking_placement.RanCode,
+					&ranking_placement.Name,
 				); err != nil {
 					http.Error(w, "Data extraction error", http.StatusInternalServerError)
 					fmt.Println(err)
 					return
 				}
-				rankings = append(rankings, rank)
+				ranking_placements = append(ranking_placements, ranking_placement)
 			}
 
 			//return data
-			jsonData, err := json.Marshal(rankings)
+			jsonData, err := json.Marshal(ranking_placements)
 			if err != nil {
 				http.Error(w, "JSON serialization failed", http.StatusInternalServerError)
 				fmt.Println(err)

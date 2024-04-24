@@ -27,7 +27,7 @@ func Promotions(w http.ResponseWriter, r *http.Request) {
 		
 			//query the promotions view
 			id := r.PathValue("id")
-			rows, err := db.Query("SELECT * FROM vw_promotions WHERE id = $1 LIMIT 1;", id)
+			rows, err := db.Query("SELECT * FROM vw_promotions WHERE id = $1;", id)
 			if err != nil {
 				fmt.Println(err)
 			}

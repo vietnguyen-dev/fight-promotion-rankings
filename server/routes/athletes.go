@@ -36,7 +36,7 @@ func Athletes(w http.ResponseWriter, r *http.Request) {
 		
 			//query the promotions view
 			id := r.PathValue("promotions_id")
-			rows, err := db.Query("SELECT * FROM vw_athletes WHERE promotion_id = $1 LIMIT 1;", id)
+			rows, err := db.Query("SELECT * FROM vw_athletes WHERE promotion_id = $1;", id)
 			if err != nil {
 				fmt.Println(err)
 			}
