@@ -4,54 +4,60 @@ import (
 	"net/http"
 	"encoding/json"
 	"fmt"	
-	"time"
 	"server/utils"
 )
 
-type vw_events struct {
+type ranking struct {
 	Id int 		`json:"id"`;
-	EveCode string `json:"eve_code"`;
-	EventTitle string `json:"event_title"`;
 	PromotionId int `json:"promotion_id"`;
-	EventDate time.Time `json:"website_link"`;
+	RankingPlacementId int `json:"ranking_placement_id"`;
+	Ranking string `json:"ranking"`;
+	WeightClassId int `json:"weight_class_id"`;
+	WeightClass string `json:"weight_class"`;
+	WeightFirstThreeDigits string `json:"weight_first_three_digits"`;
+	AthleteId int `json:"athlete_id"`;
+	AthleteName string `json:"athlete_name"`;
 }
 
-
-func Events(w http.ResponseWriter, r *http.Request) {
+func Ranking(w http.ResponseWriter, r *http.Request) {
 	switch r.Method {
 		case "GET":
 			// connect to the database
 			db := utils.PgConnect()
 			defer db.Close()
 		
-			//query the promotions view
 			id := r.PathValue("promotions_id")
-			rows, err := db.Query("SELECT * FROM vw_events WHERE id = $1;", id)
+			//query the promotions view
+			rows, err := db.Query("SELECT * FROM vw_rankings WHERE promotion_id = $1;", id)
 			if err != nil {
 				fmt.Println(err)
 			}
 			defer rows.Close()
 
 			//turn the data into proper json
-			var events []vw_events
+			var rankings []ranking
 			for rows.Next() {
-				var event vw_events
+				var rank ranking
 				if err := rows.Scan(
-					&event.Id,
-					&event.EveCode,
-					&event.EventTitle,
-					&event.PromotionId,
-					&event.EventDate,
+					&rank.Id,
+					&rank.PromotionId,
+					&rank.RankingPlacementId,
+					&rank.Ranking,
+					&rank.WeightClassId,
+					&rank.WeightClass,
+					&rank.WeightFirstThreeDigits,
+					&rank.AthleteId,
+					&rank.AthleteName,
 				); err != nil {
 					http.Error(w, "Data extraction error", http.StatusInternalServerError)
 					fmt.Println(err)
 					return
 				}
-				events = append(events, event)
+				rankings = append(rankings, rank)
 			}
 
 			//return data
-			jsonData, err := json.Marshal(events)
+			jsonData, err := json.Marshal(rankings)
 			if err != nil {
 				http.Error(w, "JSON serialization failed", http.StatusInternalServerError)
 				fmt.Println(err)
