@@ -1,25 +1,18 @@
 package main
 
-import (
-    "fmt"
-    "net/http"
+import ( 
+	"net/http"
+	"server/routes"
 )
 
-type promotions struct {
-	id int;
-	pro_code string;
-	name string;
-	how_many_ranked int;
-	website_link string;
-}
-
-// handler is a typical HTTP request-response handler in Go; details later
-func handler(w http.ResponseWriter, r *http.Request) {
-    // Fprintf formats the string to a writer
-    fmt.Fprintf(w, "Hello, World!")
-}
-
 func main() {
-    http.HandleFunc("/promotions", handler)
-    http.ListenAndServe(":8080", nil)
+	http.HandleFunc("/promotions/{id}", routes.Promotions)
+	http.HandleFunc("/athletes/{promotions_id}", routes.Athletes)
+	http.HandleFunc("/results", routes.Results)
+	http.HandleFunc("/events/{promotions_id}", routes.Events)
+	http.HandleFunc("/weight-classes/{promotions_id}", routes.WeightClasses)
+	http.HandleFunc("/fights/{events_id}", routes.Fights)
+	http.HandleFunc("/fight-results/{fight_id}", routes.FightResults)
+	http.HandleFunc("/ranking-placements", routes.RankingPlacements)
+	http.ListenAndServe(":8080", nil)
 }
