@@ -13,5 +13,6 @@ func main() {
 	http.HandleFunc("/weight-classes/{promotions_id}", routes.WeightClasses)
 	http.HandleFunc("/fights/{events_id}", routes.Fights)
 	http.HandleFunc("/fight-results/{fight_id}", routes.FightResults)
+	http.HandleFunc("/ranking-placements", routes.RankingPlacements)
 	http.ListenAndServe(":8080", nil)
 }
