@@ -1,24 +1,21 @@
+
 package routes
 
 import (
 	"net/http"
-	"database/sql"
+//	"database/sql"
 	"encoding/json"
 	"fmt"	
 	"server/utils"
 )
 
-type vw_promotions struct {
+type tresults struct {
 	Id int 		`json:"id"`;
-	ProCode string `json:"pro_code"`;
+	ResCode string `json:"res_code"`;
 	Name string `json:"name"`;
-	Email string `json:"email"`;
-	HowManyRanked int `json:"how_many_ranked"`;
-	WebsiteLink string `json:"website_link"`;
 }
 
-
-func Promotions(w http.ResponseWriter, r *http.Request) {
+func Results(w http.ResponseWriter, r *http.Request) {
 	switch r.Method {
 		case "GET":
 			// connect to the database
@@ -26,36 +23,30 @@ func Promotions(w http.ResponseWriter, r *http.Request) {
 			defer db.Close()
 		
 			//query the promotions view
-			id := r.PathValue("id")
-			rows, err := db.Query("SELECT * FROM vw_promotions WHERE id = $1 LIMIT 1;", id)
+			rows, err := db.Query("SELECT * FROM results;")
 			if err != nil {
 				fmt.Println(err)
 			}
 			defer rows.Close()
 
 			//turn the data into proper json
-			var promotions []vw_promotions
+			var results []tresults
 			for rows.Next() {
-				var promo vw_promotions
-				var websiteLink sql.NullString
+				var res tresults
 				if err := rows.Scan(
-					&promo.Id,
-					&promo.ProCode,
-					&promo.Name,
-					&promo.Email,
-					&promo.HowManyRanked,
-					&websiteLink,
+					&res.Id,
+					&res.ResCode,
+					&res.Name,
 				); err != nil {
 					http.Error(w, "Data extraction error", http.StatusInternalServerError)
 					fmt.Println(err)
 					return
 				}
-				promo.WebsiteLink = utils.NullStringToString(websiteLink)
-				promotions = append(promotions, promo)
+				results = append(results, res)
 			}
 
 			//return data
-			jsonData, err := json.Marshal(promotions)
+			jsonData, err := json.Marshal(results)
 			if err != nil {
 				http.Error(w, "JSON serialization failed", http.StatusInternalServerError)
 				fmt.Println(err)
