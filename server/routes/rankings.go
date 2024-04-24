@@ -16,7 +16,7 @@ type ranking struct {
 	WeightClass string `json:"weight_class"`;
 	WeightFirstThreeDigits string `json:"weight_first_three_digits"`;
 	AthleteId int `json:"athlete_id"`;
-	AthleteName int `json:"athlete_name"`;
+	AthleteName string `json:"athlete_name"`;
 }
 
 func Ranking(w http.ResponseWriter, r *http.Request) {
@@ -42,6 +42,7 @@ func Ranking(w http.ResponseWriter, r *http.Request) {
 					&rank.Id,
 					&rank.PromotionId,
 					&rank.RankingPlacementId,
+					&rank.Ranking,
 					&rank.WeightClassId,
 					&rank.WeightClass,
 					&rank.WeightFirstThreeDigits,
