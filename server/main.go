@@ -6,8 +6,12 @@ import (
 )
 
 func main() {
-	http.HandleFunc("/promotions/{id}", routes.Promotions)
-	http.HandleFunc("/athletes/{promotions_id}", routes.Athletes)
+	http.HandleFunc("GET /promotions/{id}", routes.Promotions)
+
+	//athletes routes
+	http.HandleFunc("GET /athletes/", routes.GetAthletes)
+
+	//results route
 	http.HandleFunc("/results", routes.Results)
 	http.HandleFunc("/events/{promotions_id}", routes.Events)
 	http.HandleFunc("/weight-classes/{promotions_id}", routes.WeightClasses)
