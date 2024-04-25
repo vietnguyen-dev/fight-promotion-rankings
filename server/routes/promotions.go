@@ -15,6 +15,7 @@ type vw_promotions struct {
 	Email string `json:"email"`;
 	HowManyRanked int `json:"how_many_ranked"`;
 	WebsiteLink string `json:"website_link"`;
+	S3Url string `json:"s3_url"`;
 }
 
 
@@ -38,6 +39,7 @@ func Promotions(w http.ResponseWriter, r *http.Request) {
 			for rows.Next() {
 				var promo vw_promotions
 				var websiteLink sql.NullString
+				var s3url sql.NullString 
 				if err := rows.Scan(
 					&promo.Id,
 					&promo.ProCode,
@@ -45,12 +47,14 @@ func Promotions(w http.ResponseWriter, r *http.Request) {
 					&promo.Email,
 					&promo.HowManyRanked,
 					&websiteLink,
+					&s3url,
 				); err != nil {
 					http.Error(w, "Data extraction error", http.StatusInternalServerError)
 					fmt.Println(err)
 					return
 				}
 				promo.WebsiteLink = utils.NullStringToString(websiteLink)
+				promo.S3Url = utils.NullStringToString(s3url)
 				promotions = append(promotions, promo)
 			}
 

@@ -6,7 +6,13 @@ const config: Config = {
 		"./src/components/**/*.{js,ts,jsx,tsx,mdx}",
 		"./src/app/**/*.{js,ts,jsx,tsx,mdx}",
 	],
-	theme: {},
+	theme: {
+		extend: {
+			boxShadow: {
+				'bottom': '0 15px 15px -5px rgba(0, 0, 0, 0.1)',
+			},
+		},
+	},
 	plugins: [require("daisyui")],  // daisyUI config (optional - here are the default values)
 	daisyui: {
 		themes: ["lofi"], // false: only light + dark | true: all themes | array: specific themes like this ["light", "dark", "cupcake"]

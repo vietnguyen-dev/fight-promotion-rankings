@@ -4,5 +4,6 @@ export interface iPromotions {
 	name: string,
 	email: string,
 	how_many_ranked: number,
-	website_link: string
+	website_link: string,
+	s3_url: string
 }
