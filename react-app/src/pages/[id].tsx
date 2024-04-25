@@ -1,5 +1,5 @@
 import { Inter } from "next/font/google";
-import { GetServerSideProps } from 'next';
+import { GetServerSideProps, Link } from 'next';
 
 import { iWeightClass } from '../interfaces/weight-classes'
 import { iPromotions } from '../interfaces/promotion'
