@@ -1,5 +1,5 @@
 --promotions
-INSERT INTO promotions (pro_code, name, email, how_many_ranked) VALUES ('NWKBL0','Northwest Kickboxing League', 'vietnguyent22@gmail.com', 5); 
+INSERT INTO promotions (pro_code, name, email, how_many_ranked, s3_url) VALUES ('NWKBL0','Northwest Kickboxing League', 'vietnguyent22@gmail.com', 5, 'https://promotions-ranking.s3.us-west-2.amazonaws.com/logos/nwkbl.png'); 
 
 --results
 INSERT INTO results (res_code, name) VALUES ('TKO', 'Total Knockout');
@@ -25,14 +25,19 @@ INSERT INTO ranking_placement (ran_code, name) VALUES ('NIN', '9.');
 INSERT INTO ranking_placement (ran_code, name) VALUES ('TEN', '10.');
 
 --weight-classes
-INSERT INTO weight_classes (wei_code, weight_range, name, promotion_id) VALUES ('BAN135', '135', 'Bantamweight 135', 1);  
+INSERT INTO weight_classes (wei_code, weight_range, name, promotion_id) VALUES ('BAN135', '135', 'Bantamweight', 1);  
 INSERT INTO weight_classes (wei_code, weight_range, name, promotion_id) VALUES ('CAT140', '140', 'Catchweight 140', 1);  
 INSERT INTO weight_classes (wei_code, weight_range, name, promotion_id) VALUES ('CAT150', '150', 'Catchweight 150', 1);  
-INSERT INTO weight_classes (wei_code, weight_range, name, promotion_id) VALUES ('LIG155', '155', 'Light 155', 1);  
+INSERT INTO weight_classes (wei_code, weight_range, name, promotion_id) VALUES ('LIG155', '155', 'Lightweight', 1);  
 INSERT INTO weight_classes (wei_code, weight_range, name, promotion_id) VALUES ('CAT160', '160', 'Catchweight 160', 1);  
 INSERT INTO weight_classes (wei_code, weight_range, name, promotion_id) VALUES ('CAT175', '175', 'Catchweight 175', 1);  
 INSERT INTO weight_classes (wei_code, weight_range, name, promotion_id) VALUES ('CAT180', '180', 'Catchweight 180', 1);  
-INSERT INTO weight_classes (wei_code, weight_range, name, promotion_id) VALUES ('HEA200', '200', 'Heavyweight 200', 1);  
+INSERT INTO weight_classes (wei_code, weight_range, name, promotion_id) VALUES ('HEA200', '200', 'Heavyweight', 1);
+insert into weight_classes (wei_code, weight_range, name, promotion_id) values ('FEA145', '145', 'Featherweight', 1);
+insert into weight_classes (wei_code, weight_range, name, promotion_id) values ('FLY125', '125', 'Flyweight', 1);
+insert into weight_classes (wei_code, weight_range, name, promotion_id) values ('MID185', '185', 'Middleweight', 1);
+insert into weight_classes (wei_code, weight_range, name, promotion_id) values ('WEL175', '175', 'Welterweight', 1);
+
 
 --athletes
 INSERT INTO athletes (first_name, last_name, nickname, gym_name, location, height, reach, promotion_id) VALUES ('Keith', 'Nguyen', 'Kamikaze', 'Tigerstyle Combat Sports', 'Portland, OR', '6" 1"', '73', 1);
@@ -76,7 +81,8 @@ INSERT INTO fight_results (fight_id, winner_id, loser_id, result_id, event_id) V
 INSERT INTO fight_results (fight_id, winner_id, loser_id, result_id, event_id) VALUES (4, 7, 8, 2, 1); 
 INSERT INTO fight_results (fight_id, winner_id, loser_id, result_id, event_id) VALUES (5, 9, 10, 2, 1); 
 INSERT INTO fight_results (fight_id, winner_id, loser_id, result_id, event_id) VALUES (6, 11, 12, 5, 1); 
-INSERT INTO fight_results (fight_id, winner_id, loser_id, result_id, event_id) VALUES (7, 13, 14, 1, 1); 
+INSERT INTO fight_results (fight_id, winner_id, loser_id, result_id, event_id) VALUES (7, 14, 13, 1, 1); 
 
 --rankings
-INSERT INTO rankings (promotion_id, ranking_placement_id, weight_class_id, athlete_id) VALUES (1, 1, 8, 13);
+INSERT INTO rankings (promotion_id, ranking_placement_id, weight_class_id, athlete_id) VALUES (1, 1, 8, 14);
+INSERT INTO rankings (promotion_id, ranking_placement_id, weight_class_id, athlete_id) VALUES (1, 2, 8, 13);

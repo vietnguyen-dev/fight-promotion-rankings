@@ -4,5 +4,6 @@ react-app/node_modules
 react-app/package-lock.json
 react-app/.next
 react-app/.vercel
+react-app/.env.local
 
 server/.env
