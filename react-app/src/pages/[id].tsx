@@ -1,8 +1,5 @@
 import { Inter } from "next/font/google";
 import { GetServerSideProps } from 'next';
-import Link from 'next/link'
-import { useRouter } from 'next/router'
-
 import { iWeightClass } from '../interfaces/weight-classes'
 import { iPromotions } from '../interfaces/promotion'
 import { iRankings } from '../interfaces/ranking'
@@ -18,19 +15,19 @@ interface iPageProps {
 }
 
 export default function Page({ weightClasses, promotion, rankings }: iPageProps) {
-	const router = useRouter()
-
 	const weightFiltered = weightClasses.filter((weight) => weight.wei_code.includes("CAT") != true)
 	return (
 		<main
-			className={`flex min-h-screen flex-col items-center ${inter.className}`}
+			className={`flex min-h-screen flex-col items-center md:w-3/4 md:mx-auto ${inter.className}`}
 		>
-			<div className="flex justify-center shadow-bottom w-full mb-6 p-2">
+			<div className="flex justify-center shadow-bottom w-full mb-6 p-2 md:mt-6 md:shadow-xl">
 				<img src={promotion.s3_url} alt={`${promotion.name} logo`} width={50} height={50} />
 			</div>
-			<h1 className="font-extrabold text-2xl text-center px-6">{promotion.name.toUpperCase()}</h1>
-			<h2 className="font-extrabold text-xl px-6 pb-6">ATHLETE RANKINGS</h2>
-			<section className="join join-vertical w-full">
+			<div className="text-center md:py-12">
+				<h1 className="font-extrabold text-2xl px-6">{promotion.name.toUpperCase()}</h1>
+				<h2 className="font-extrabold text-xl px-6 pb-6">ATHLETE RANKINGS</h2>
+			</div>
+			<section className="grid grid-cols-1 w-full md:grid md:grid-cols-4 md:px-12">
 				<Accordian weightClasses={weightFiltered} rankings={rankings} />
 			</section>
 			<footer className="footer footer-center p-10 bg-base-200 text-base-content rounded">

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 import { iWeightClass } from '../interfaces/weight-classes'
 import { iRankings } from '../interfaces/ranking'
@@ -35,9 +36,9 @@ function Accordian({ weightClasses, rankings }: iAccordianProps) {
 				const champ = ranked[0]
 				const runnerUps = ranked.slice(1, ranked.length)
 				return (
-					<section key={weightClass.id} id={`weight-class-${weightClass.id}`}>
-						<div className="p-6 border-[1px] border-b-gray-300 flex justify-between">
-							<div>
+					<div key={weightClass.id} id={`weight-class-${weightClass.id}`} className="md:mb-6">
+						<div className="p-6 border-[1px] border-b-gray-300 flex justify-between md:border-none">
+							<div className=" md:border-[1px] md:border-b-gray-300">
 								<h3 className="text-sm font-bold text-red-700">{weightClass.name.toUpperCase()}</h3>
 								{champ ?
 									<h3 className="text-xl font-bold mb-1">
@@ -46,11 +47,16 @@ function Accordian({ weightClasses, rankings }: iAccordianProps) {
 									: <h3 className="mb-1">VACANT</h3>}
 								<h4 className="text-xs text-gray-600">CHAMPION</h4>
 							</div>
-							<button onClick={() => toggleExpansion(weightClass.id)}>{isExpanded[weightClass.id] ? <p>up</p> : <p>down</p>}</button>
+							<button onClick={() => toggleExpansion(weightClass.id)} className="md:hidden">
+								{isExpanded[weightClass.id] ?
+									<Image src="/up-arrow.svg" alt="up arrow" width={25} height={25} />
+									:
+									<Image src="/down-arrow.svg" alt="up arrow" width={25} height={25} />}
+							</button>
 						</div>
-						<div className={` ${isExpanded[weightClass.id] && 'hidden'}`}>
+						<div className={` ${isExpanded[weightClass.id] && 'hidden'} md:block`}>
 							{runnerUps.map((ranking: iRankings) =>
-								<div key={ranking.athlete_id} className="flex px-6 py-4 border-b-gray-300">
+								<div key={ranking.athlete_id} className="flex px-6 py-4 border-b-gray-300 md:border-none">
 									<h4 className="font-semibold text-sm text-gray-500 mr-3">{ranking.ranking}</h4>
 									<h4 className="font-bold text-sm">
 										<Link href={`/athletes/${ranking.athlete_id}`}>{ranking.athlete_name.toUpperCase()}</Link>
@@ -58,7 +64,7 @@ function Accordian({ weightClasses, rankings }: iAccordianProps) {
 								</div>)}
 
 						</div>
-					</section >
+					</div >
 				);
 			})}
 		</>
