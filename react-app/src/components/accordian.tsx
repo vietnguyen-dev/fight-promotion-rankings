@@ -37,9 +37,9 @@ function Accordian({ weightClasses, rankings }: iAccordianProps) {
 				const runnerUps = ranked.slice(1, ranked.length)
 				return (
 					<div key={weightClass.id} id={`weight-class-${weightClass.id}`} className="md:mb-6">
-						<div className="p-6 border-[1px] border-b-gray-300 flex justify-between md:border-none">
-							<div className=" md:border-[1px] md:border-b-gray-300">
-								<h3 className="text-sm font-bold text-red-700">{weightClass.name.toUpperCase()}</h3>
+						<div className="p-6 border-b-[1px] border-b-gray-300 flex justify-between md:border-none md:px-3 md:pb-0">
+							<div>
+								<h3 className="text-sm font-bold text-red-700 md:mb-1">{weightClass.name.toUpperCase()}</h3>
 								{champ ?
 									<h3 className="text-xl font-bold mb-1">
 										<Link href={`/athletes/${champ.athlete_id}`}>{champ.athlete_name.toUpperCase()}</Link>

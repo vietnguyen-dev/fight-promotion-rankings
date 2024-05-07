@@ -27,18 +27,16 @@ export default function Page({ weightClasses, promotion, rankings }: iPageProps)
 				<h1 className="font-extrabold text-2xl px-6">{promotion.name.toUpperCase()}</h1>
 				<h2 className="font-extrabold text-xl px-6 pb-6">ATHLETE RANKINGS</h2>
 			</div>
-			<section className="grid grid-cols-1 w-full md:grid md:grid-cols-4 md:px-12">
+			<section className="grid grid-cols-1 w-full md:grid md:grid-cols-4 md:w-2/3 md:mx-auto">
 				<Accordian weightClasses={weightFiltered} rankings={rankings} />
 			</section>
 			<footer className="footer footer-center p-10 bg-base-200 text-base-content rounded">
 				<nav className="grid grid-flow-col gap-4">
-					<a className="link link-hover">About us</a>
-					<a className="link link-hover">Contact</a>
-					<a className="link link-hover">Jobs</a>
-					<a className="link link-hover">Press kit</a>
+					<a className="link link-hover">Get Your Own Rankings</a>
+					<a className="link link-hover">Login</a>
 				</nav>
 				<aside>
-					<p>Copyright © 2024 - All right reserved by ACME Industries Ltd</p>
+					<p>Copyright © 2024 - All right reserved by Keith Nguyen 2024</p>
 				</aside>
 			</footer>
 		</main >
