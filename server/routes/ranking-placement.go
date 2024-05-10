@@ -15,6 +15,7 @@ type tranking_placement struct {
 }
 
 func RankingPlacements(w http.ResponseWriter, r *http.Request) {
+	utils.EnableCors(&w)
 	switch r.Method {
 		case "GET":
 			// connect to the database

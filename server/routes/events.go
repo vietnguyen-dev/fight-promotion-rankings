@@ -18,6 +18,7 @@ type vw_events struct {
 
 
 func Events(w http.ResponseWriter, r *http.Request) {
+	utils.EnableCors(&w)
 	switch r.Method {
 		case "GET":
 			// connect to the database

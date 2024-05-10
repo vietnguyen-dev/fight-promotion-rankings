@@ -18,6 +18,7 @@ type vw_weight_classes struct {
 
 
 func WeightClasses(w http.ResponseWriter, r *http.Request) {
+	utils.EnableCors(&w)
 	switch r.Method {
 		case "GET":
 			// connect to the database

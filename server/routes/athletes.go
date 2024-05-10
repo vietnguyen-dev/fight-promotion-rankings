@@ -29,6 +29,7 @@ type vw_athletes struct {
 }
 
 func GetAthletes(w http.ResponseWriter, r *http.Request) {
+	utils.EnableCors(&w)
 	// connect to the database
 	db := utils.PgConnect()
 	defer db.Close()

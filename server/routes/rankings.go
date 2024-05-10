@@ -20,6 +20,7 @@ type ranking struct {
 }
 
 func Ranking(w http.ResponseWriter, r *http.Request) {
+	utils.EnableCors(&w)
 	switch r.Method {
 		case "GET":
 			// connect to the database
