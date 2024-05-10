@@ -15,6 +15,7 @@ type tresults struct {
 }
 
 func Results(w http.ResponseWriter, r *http.Request) {
+	utils.EnableCors(&w)
 	switch r.Method {
 		case "GET":
 			// connect to the database

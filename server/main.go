@@ -5,6 +5,7 @@ import (
 	"server/routes"
 )
 
+
 func main() {
 	http.HandleFunc("GET /promotions/{id}", routes.Promotions)
 

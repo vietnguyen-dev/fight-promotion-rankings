@@ -27,6 +27,7 @@ type vw_fights struct {
 
 
 func Fights(w http.ResponseWriter, r *http.Request) {
+	utils.EnableCors(&w)
 	switch r.Method {
 		case "GET":
 			// connect to the database

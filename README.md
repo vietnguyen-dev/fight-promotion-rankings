@@ -27,7 +27,7 @@ admin app features
         - users will be able to choose from athletes from their roster and be able to order their rankings to be shown on the public website
 
 public websites feature
-1. promotion rankings should be publicly be available on this-domain.com/promotion-code
+1. promotion rankings should be publicly be available on this-domain.com/id
     - rankings by weight class and p4p rankings
 
 
